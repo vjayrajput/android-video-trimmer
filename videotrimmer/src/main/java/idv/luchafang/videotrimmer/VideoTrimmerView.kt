@@ -98,14 +98,12 @@ class VideoTrimmerView @JvmOverloads constructor(
         presenter?.let {
             slidingWindowView.listener = presenter as SlidingWindowView.Listener
 
-            val horizontalMargin = (dpToPx(context, 11f) + barWidth).roundToInt()
-            val decoration = VideoFramesDecoration(horizontalMargin, overlayColor)
+            val horizontalMargin = (dpToPx(context, 0f) + barWidth).roundToInt()
             val scrollListener = VideoFramesScrollListener(
                 horizontalMargin,
                 presenter as VideoFramesScrollListener.Callback
             )
 
-            videoFrameListView.addItemDecoration(decoration)
             videoFrameListView.addOnScrollListener(scrollListener)
         }
     }
